@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('todos', TodoController::class);
-Route::get('todos/{todo}', [TodoController::class, 'destroy'])->name('todos.destroy');
+Route::get('/', function () {
+    return view('todo');
+});
+Route::get('/', [\App\Http\Controllers\TodoController::class, 'index']);
+
+Route::resource('todos', \App\Http\Controllers\TodoController::class); // to access all the functions of the TodoController...
+Route::get('todos/{todo}', [\App\Http\Controllers\TodoController::class,'destroy'])->name('todos.destory');
