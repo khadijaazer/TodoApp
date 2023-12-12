@@ -69,15 +69,15 @@
                 <tbody>
 
                 @php $counter=1 @endphp
-
+<!--looping through each todos-->
                 @foreach($todos as $todo)
                     <tr>
                         <th>{{$counter}}</th>
-                        <td>{{$todo->title}}</td>
+                        <td>{{$todo->title}}</td> <!--loading the title-->
                         <td>{{$todo->created_at}}</td>
                         <td>
                             @if($todo->is_completed)
-                                <div class="badge bg-success">Completed</div>
+                                <div class="badge bg-success">Completed</div> <!--1 =complete and  0 =not complete.-->
                             @else
                                 <div class="badge bg-warning">Not Completed</div>
                             @endif
