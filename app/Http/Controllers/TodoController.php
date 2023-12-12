@@ -15,9 +15,10 @@ class TodoController extends Controller
      */
     public function index()
     {
-        //
-        $todos=Todo::all();
-        return view('todo',compact('todos'));
+        //get all the todos in the index func  using all() 
+        $todos=Todo::all();// storing them in $todos 
+        return view('todo',compact('todos')); //passing the todos to the view  ---> utilise compact  
+        //todo view , will have access to the all the todos..
     }
 
     /**
@@ -38,14 +39,15 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
+        //validating the request
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'title' => 'required',
+            'title' => 'required', //validating that title is required always
         ]);
-
+// if it ! prsnt--->  main page 
         if ($validator->fails()) {
             return redirect()->route('todos.index')->withErrors($validator);
         }
-
+//If its present--->calling the Todo Model 
         Todo::create([
             'title' => $request->get('title')
         ]);
