@@ -42,7 +42,7 @@
     <h2>Add Todo</h2>
 
     <form class="row g-3 justify-content-center" method="POST" action="{{route('todos.store')}}">
-        @csrf
+        @csrf    <!-- for securité-->
         <div class="col-6">
             <input type="text" class="form-control" name="title" placeholder="Title">
         </div>
