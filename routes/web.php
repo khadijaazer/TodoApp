@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
+
 Route::get('/', function () {
     return view('todo');
-});*/
+});
 Route::get('/', [\App\Http\Controllers\TodoController::class, 'index']);
 
 Route::resource('todos', \App\Http\Controllers\TodoController::class); // to access all the functions of the TodoController...
